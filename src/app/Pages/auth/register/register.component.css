@@ -1,0 +1,110 @@
+.container{
+    background-color: #F5F5F5;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    width: min(90%, 35rem);
+    background-color: #FFFFFF;
+    padding: 2rem 3rem;
+    border-radius: 1.2rem;
+}
+
+.title{
+    text-align: center;
+}
+
+.title > p:nth-child(even){
+    font-size: 18px;
+}
+
+.title > p:nth-child(odd){
+    padding-block: 1rem 3rem;
+    color: #546FFF;
+    font-size: 20px;
+}
+
+.buttons{
+    display: grid;
+    gap: .8rem;
+    margin-block: 2rem 1rem;
+}
+
+button{
+    border-color: transparent;
+    padding-block: .6rem;
+    border-radius: .3rem;
+    width: 100%;
+    cursor: pointer;
+    font-weight: 600;
+    background-color: #546FFF;
+    color: white;
+}
+.err{
+    color: #ff000080;
+    font-size: 12px;
+}
+.top-err{
+    font-size: 18px;
+    text-align: center;
+}
+
+button:disabled{
+    background-color: #546FFF20;
+    color: #6B6C7E;
+}
+
+form > p{
+    text-align: center;
+    font-size: 14px;
+}
+
+span{
+    color: #546FFF;
+    cursor: pointer;
+}
+
+input{
+    width: 100%;
+    border: none;
+    background-color: #F5F5F5;
+    padding: .8rem;
+    border-radius: .3rem;
+    margin-top: .3rem;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    gap: 1rem;
+}
+
+.checkbox{
+    display: flex;
+    flex-wrap: wrap;
+    gap:  1rem;
+}
+
+.checkbox > div{
+    display: flex;
+    gap: .5rem;
+    width: fit-content;
+    align-items: center;
+}
+
+.check{
+    height: .8rem;
+    width: .8rem;
+    border: 1px solid black;
+    border-radius: 59%;
+}
+.password-condition{
+    color: #6B6C7E;
+    font-weight: 700;
+    font-size: 14px;
+    margin-block: .5rem;
+}

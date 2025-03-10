@@ -1,0 +1,73 @@
+<app-dashboard-layout>
+    <section>
+        <header>
+            <app-profile>
+                <h2>Setting</h2>
+            </app-profile>
+        </header>
+        
+        <h2 class="desktop">Setting</h2>
+        <main class="main">
+            <div class="heading">
+                <p [ngClass]="activeTab == 'general' ? 'activeTab' : ''" (click)="onChangeTab()">General</p>
+                <p [ngClass]="activeTab == 'notification' ? 'activeTab' : ''" (click)="onChangeTab()">Notification</p>
+            </div>
+            @if(activeTab == 'general'){
+                <div class="general">
+                    <div>
+                        <p>Language</p>
+                        <select name="" id="">
+                            <option value="English">English</option>
+                            <option value="French">French</option>
+                        </select>
+                    </div>
+
+                    <div >
+                        <p>Timezone</p>
+                        <div class="zone" [ngClass]="">
+                            <div [ngClass]="zone == '24hrs' ? 'zone-active' : ''" (click)="onChangeZone()">
+                                <p>24 hrs</p>
+                                <div [ngClass]="zone == '24hrs' ? 'zone-active' : ''"></div>
+                            </div>
+                            <div [ngClass]="zone == '12hrs' ? 'zone-active' : ''" (click)="onChangeZone()">
+                                <p>12 hrs</p>
+                                <div [ngClass]="zone == '12hrs' ? 'zone-active' : ''"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }@else {
+                <div class="notification">
+                    <div class="notif">
+                        <button class="radiobutton" (click)="changeShowMessage()">
+                            <div [ngClass]="showMessage ? 'active' : 'inActive'"></div>
+                        </button>
+                        <p>Message</p>
+                    </div>
+                    <div class="notif">
+                        <button class="radiobutton" (click)="changeTaskUpdate()">
+                            <div [ngClass]="taskUpdate ? 'active' : 'inActive'"></div>
+                        </button>
+                        <p>Task Update</p>
+                    </div>
+                    <div class="notif">
+                        <button class="radiobutton" (click)="changeTaskDealine()">
+                            <div [ngClass]="taskDeadline ? 'active' : 'inActive'"></div>
+                        </button>
+                        <p>Task Deadline</p>
+                    </div>
+                    <div class="notif" (click)="chamgeMentorHelp()">
+                        <button class="radiobutton">
+                            <div [ngClass]="mentorHelp ? 'active' : 'inActive'"></div>
+                        </button>
+                        <p>Mentor Help</p>
+                    </div>
+                </div>
+            }
+
+
+            <button class="submit">Save Changes</button>
+        </main>
+    </section>
+</app-dashboard-layout>

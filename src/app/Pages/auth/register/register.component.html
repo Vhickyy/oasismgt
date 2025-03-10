@@ -1,0 +1,102 @@
+<div class="container">
+
+    <form [formGroup]="formData" (ngSubmit)="onRegister($event)">
+
+        <div class="title">
+            <img src="../../../../assets/logo.svg" alt="oasismgt-logo">
+            <p>Ultimate solution for effective team collaboration</p>
+            <p>Create an account</p>
+        </div>
+
+        <section>
+            <p class="err top-err">{{errMsg}}</p>
+            <div>
+                <p>Full Name</p>
+                <input type="email" name="email" placeholder="example@mail.com" formControlName="fullName" [ngClass]="{
+                    'error': formData.get('fullName')?.invalid && formData.get('fullName')?.dirty,
+                    'pristine': formData.get('fullName')?.pristine
+                }">
+                @if(formData.get('fullName')?.invalid && formData.get('fullName')?.touched ){
+                    <p class="err">FullName is required</p>
+                }
+
+            </div>
+            <div>
+                <p>Email</p>
+                <input type="email" name="email" placeholder="example@mail.com" formControlName="email" 
+                 [ngClass]="{
+                    'error': formData.get('email')?.invalid && formData.get('email')?.dirty,
+                    'pristine': formData.get('email')?.pristine
+                }">
+                @if(formData.get('email')?.invalid &&formData.get('email')?.touched ){
+                    <p class="err">>Email is required</p>
+                }
+            </div>
+            <div>
+                <p>Password</p>
+                <input type="password" name="Password" placeholder="**********" formControlName="password"
+                [ngClass]="{
+                    'error': formData.get('password')?.invalid && formData.get('password')?.dirty,
+                    'pristine': formData.get('password')?.pristine
+                }">
+                @if(formData.get('password')?.invalid &&formData.get('password')?.touched){
+                    <p class="err">Password is required</p>
+                }
+            </div>
+        </section>
+
+        <div>
+            <p class="password-condition">Password must contain:</p>
+            <div class="checkbox">
+                <div>
+                    @if(!hasLowerCase()){
+                        <div class="check"></div>
+                    }@else {
+                        <img src="../../../../assets/tick.svg" alt="">
+                    }
+                    <p>Lower-case</p>
+                </div>
+                <div>
+                    @if(!hasNumber()){
+                        <div class="check"></div>
+                    }@else {
+                        <img src="../../../../assets/tick.svg" alt="">
+                    }
+                    <p>At least 1 number</p>
+                </div>
+                <div>
+                    @if(!hasSpecialCharacter()){
+                        <div class="check"></div>
+                    }@else {
+                        <img src="../../../../assets/tick.svg" alt="">
+                    }
+                    <p>Special character</p>
+                </div>
+                <div>
+                    @if(!hasMinimumLength()){
+                        <div class="check"></div>
+                    }@else {
+                        <img src="../../../../assets/tick.svg" alt="">
+                    }
+                    <p>8 or more characters</p>
+                </div>
+                <div>
+                    @if(!hasUpperCase()){
+                        <div class="check"></div>
+                    }@else {
+                        <img src="../../../../assets/tick.svg" alt="">
+                    }
+                    <p>upper-case</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button [disabled]="!formData.valid">Sign Up</button>
+        </div>
+
+        <p>Already have an account click here to <span routerLink="/login">Login</span></p>
+
+    </form>
+
+</div>

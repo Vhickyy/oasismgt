@@ -1,0 +1,20 @@
+<div>
+    <div class="flex-position">
+        <div class="content">
+            <ng-content></ng-content>
+        </div>
+        <img src="../../../assets/menu.svg" class="menu" alt="menu" (click)="taskService.toggleSideBar()">
+        <div class="flex-position rel">
+            <img src="../../../assets/notif.svg" alt="notification-icon" routerLink="/dashboard/setting">
+            <img src="../../../assets/Profile.svg" alt="" (click)="toggleModal()">
+            @if(showModal){
+                <div class="absolute">
+                    <p>{{authService.currentUser?.data?.fullName}}</p>
+                    <p>{{authService.currentUser?.data?.email}}</p>
+                    <button (click)="onLogout()">Log Out</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

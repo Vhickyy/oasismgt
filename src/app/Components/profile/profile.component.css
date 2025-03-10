@@ -1,0 +1,48 @@
+.flex-position{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+}
+.content{
+    display: none;
+}
+
+img{
+    cursor: pointer;
+}
+
+.rel{
+    position: relative;
+}
+
+.absolute{
+    position: absolute;
+    z-index: 100;
+    border: 1px solid #546FFF;
+    background-color: #fff;
+    right: 0;
+    bottom: -7rem;
+    padding: .5rem;
+    border-radius: 6px;
+}
+
+.absolute button{
+    width: 100%;
+    padding-block: .5rem;
+    margin-top: 1rem;
+    border-radius: 6px;
+    color: white;
+    background-color: #546FFF;
+    border: none;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 1000px) {
+    .content{
+        display: block;
+    }
+    .menu{
+        display: none;
+    }
+}

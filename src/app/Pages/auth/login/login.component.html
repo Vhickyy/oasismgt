@@ -1,0 +1,29 @@
+<div class="container">
+    <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
+        <div class="title">
+            <img src="../../../../assets/logo.svg" alt="oasismgt-logo">
+            <p>Ultimate solution for effective team collaboration</p>
+            <p>Sign in with email address</p>
+        </div>
+        <p class="err">{{errorMsg}}</p>
+        <section>
+            <div>
+                <p>Email</p>
+                <input type="email" name="email" placeholder="example@mail.com" ngModel (input)="clearErrorMsg()">
+            </div>
+            <div>
+                <p>Password</p>
+                <input type="text" name="password" placeholder="**********" ngModel (input)="clearErrorMsg()">
+            </div>
+            <p>Forgot Password?</p>
+        </section>
+
+        <div class="buttons">
+            <button type="submit">Sign In</button>
+            <button routerLink="/register">Create Account</button>
+        </div>
+
+        <p>By signing in, you are agreeing to our <span>Terms & Conditions and Privacy Policy</span></p>
+
+    </form>
+</div>

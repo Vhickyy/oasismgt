@@ -1,0 +1,36 @@
+<div class="task" [routerLink]="'/dashboard/task/' + item?.id">
+    <div class="flex-position">
+        <p class="date">{{item?.dueDate | date: 'MMMM d, y'}}</p>
+        <img src="../../../assets/dots.svg" alt="">
+    </div>
+    <div>
+        <p class="title">{{item?.title }}</p>
+        <!-- <p class="title">{{(item?.title && item?.title?.length > 10) ? item?.title?.slice(0,10) : '' }}</p> -->
+        <p class="subtitle">ui/ux wrting</p>
+    </div>
+    <div class="progress-bar">
+        <div [ngStyle]="{width: item?.progress + '%', height: '100%' }" [ngClass]="item?.status == 'not-started' ? 'not-startedbg' : item?.status == 'started' ? 'startedbg' : 'completedbg'"></div>
+    </div>
+    <div class="flex-position end">
+        <p>Progress</p>
+        <p>{{item?.progress}}%</p>
+    </div>
+    <div class="flex-position">
+        <div class="flex-position members">
+            <div>
+                <img src="../../../assets/angelie.png" alt="">
+                <img src="../../../assets/anita.png" alt="">
+                
+                @if(item && item.members > 2){
+                    <img src="../../../assets/maria.png" alt="">
+                }
+            </div>
+            <button>
+                <img src="../../../assets/add.svg" alt="">
+            </button>
+        </div>
+        <div [ngClass]="item?.status == 'not-started' ? 'not-started' : item?.status == 'started' ? 'started' : 'completed'">
+            <p>{{item?.status == 'completed' ? 'completed' : daysLeft > 1 ? daysLeft + ' days left' :  daysLeft + ' day left'}}</p>
+        </div>
+    </div>
+</div>

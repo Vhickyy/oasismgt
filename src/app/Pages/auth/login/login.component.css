@@ -1,0 +1,84 @@
+.container{
+    background-color: #F5F5F5;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    width: min(90%, 35rem);
+    background-color: #FFFFFF;
+    padding: 3rem;
+    border-radius: 1.2rem;
+}
+
+.title{
+    text-align: center;
+}
+
+.title > p:nth-child(even){
+    font-size: 18px;
+}
+
+.title > p:nth-child(odd){
+    padding-block: 1rem 3rem;
+    color: #546FFF;
+    font-size: 20px;
+}
+
+.buttons{
+    display: grid;
+    gap: .8rem;
+    margin-block: 2rem 1rem;
+}
+
+.buttons button{
+    border-color: transparent;
+    padding-block: .6rem;
+    border-radius: .3rem;
+    width: 100%;
+    cursor: pointer;
+    font-weight: 600;
+}
+.buttons button:nth-child(odd){
+    background-color: #546FFF;
+    color: #FFFFFF;
+}
+.buttons button:nth-child(even){
+    background-color: #E9E9FC;
+    color: #0028FF;
+}
+
+form > p{
+    text-align: center;
+    font-size: 13px;
+}
+
+span{
+    color: #546FFF;
+    cursor: pointer;
+}
+
+input{
+    width: 100%;
+    border: none;
+    background-color: #F5F5F5;
+    padding: .5rem;
+    border-radius: .3rem;
+    margin-top: .3rem;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    gap: 1rem;
+}
+
+.err{
+    color: #ff000070;
+    margin-bottom: 2rem;
+    font-size: 18px;
+    font-weight: 400;
+}

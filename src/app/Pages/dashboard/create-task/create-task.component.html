@@ -1,0 +1,49 @@
+<app-dashboard-layout>
+    <section>
+        <header>
+            <app-profile>
+                <h2>Create Task</h2>
+            </app-profile>
+        </header>
+
+        <main>
+            <h2 class="desktop">Create Task</h2>
+            <form [formGroup]="taskFormData" (ngSubmit)="onSubmitTask($event)">
+                <div>
+                     <p>Task Title</p>
+                     <input type="text" formControlName="title" placeholder="Enter Title">
+                     @if(taskFormData.get('title')?.invalid && taskFormData.get('title')?.touched ){
+                        <p class="err">Title is required</p>
+                    }
+                </div>
+                <div class="desc">
+                     <p>Task Description</p>
+                     <textarea name="description" id="" formControlName="description" placeholder="Enter Description"></textarea>
+                     @if(taskFormData.get('description')?.invalid && taskFormData.get('description')?.touched ){
+                        <p class="err">Description is required</p>
+                    }
+                </div>
+                <!-- @if(taskFormData.get('dueDate')?.value){ -->
+                    <p>Due-Date: {{taskFormData.get('dueDate')?.value | date: 'MMMM d, y'}}</p>
+                <!-- } -->
+                
+                <div class="tags">
+                     <div>
+                         <p>Add Cover</p>
+                     </div>
+                     <div>
+                         <p>Label</p>
+                     </div>
+                     <div (click)="openDatePicker(dateInput)">
+                         <p >Due Date</p>
+                         <input type="date" #dateInput hidden formControlName="dueDate" [min]="minDate">
+                     </div>
+                     <div>
+                         <p>Members</p>
+                     </div>
+                </div>
+                <button [disabled]="!taskFormData.valid">Craete Task</button>
+            </form>
+        </main>
+    </section>
+</app-dashboard-layout>

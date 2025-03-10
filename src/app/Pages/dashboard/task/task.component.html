@@ -1,0 +1,74 @@
+<app-dashboard-layout>
+    <section>
+        <header>
+            <app-profile>
+                <h2>Task</h2>
+            </app-profile>
+        </header>
+
+        <main>
+            <h2 class="desktop">Task</h2>
+            <div class="task-header flex-positioning">
+                <div class="input-div">
+                    <img src="../../../../assets/search.svg" alt="">
+                    <input type="text" placeholder="search" [(ngModel)]="search">
+                </div>
+                <div class="flex-positioning">
+                    <div class="flex-positioning reduce-gap">
+                        <img src="../../../../assets/category.svg" alt="category-icon">
+                        <p>Category</p>
+                    </div>
+                    <div class="flex-positioning reduce-gap">
+                        <img src="../../../../assets/sort.svg" alt="sort-icon">
+                        <p>Sort By : Deadline</p>
+                    </div>
+                </div>
+            </div>
+            @if(tasks.length){
+                <section>
+                    <div>
+        
+                        <div class="tasks">
+                            <h3> Task Todo </h3>
+                        @if(notStartedTasks.length){
+                                @for(item of notStartedTasks; track $index;){
+                                    <app-task-component [item] = 'item'></app-task-component>
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div>
+        
+                        <div class="tasks">
+                            <h3>Ongoing Task </h3>
+                        @if(inProgressTasks.length){
+                                @for(item of inProgressTasks; track $index;){
+                                    <app-task-component [item] = 'item'></app-task-component>
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div>
+                        <div class="tasks">
+                            <h3>Completed Task</h3>
+                        @if(completedTasks.length){
+                                @for(item of completedTasks; track $index;){
+                                    <app-task-component [item] = 'item'></app-task-component>
+                                }
+                            }
+                        </div>
+                    </div>
+                </section>
+            }@else {
+                <div class="empty-task">
+                    <div class="heading">
+                        <img src="../../../../assets/empty-task.svg" alt="empty-task">
+                        <p>You don't have any active task, kindly create a new task to proceed</p>
+                    </div>
+    
+                    <button routerLink="/dashboard/task/create-task">Create Task</button>
+                </div>
+            }
+        </main>
+    </section>
+</app-dashboard-layout>

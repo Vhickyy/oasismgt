@@ -1,0 +1,97 @@
+section{
+    background-color: #F5F5F5;
+    height: 100%;
+}
+header{
+    padding: 2rem;
+    background-color: #ffffff;
+}
+
+main{
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.content{
+    width: min(100%,40rem);
+    background-color: white;
+    border-radius: 6px;
+}
+.content img{
+    border-radius: 6px;
+    width: 100%;
+}
+.details{
+    padding: 2rem;
+    display: grid;
+    gap: 2rem;
+}
+
+.details p{
+    line-height: 2rem;
+    padding-top: 1rem;
+}
+
+.members{
+    display: flex;
+    align-items: center;
+}
+.members img{
+    width: 20%;
+}
+.members p{
+    margin-top: -.6rem;
+}
+
+.desktop{
+    padding-bottom: 2rem;
+}
+
+.section-two{
+    display: flex;
+    gap: 1rem;
+}
+.section-two > div{
+    width: min(50%,13rem);
+}
+.label, .date{
+    display: grid;
+    gap: .5rem;
+}
+.label > div{
+    background-color: #A50200;
+    color: #ffffff;
+    border: none;
+    /* padding: 1rem 2rem; */
+    border-radius: 6px;
+}
+
+.date > div{
+    background-color: #E9E9FC;
+    color: black;
+    border: none;
+    /* padding: 1rem 2rem; */
+    border-radius: 6px;
+    text-align: center;
+}
+
+.top{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.top img{
+    cursor: pointer;
+    height: 1rem;
+    width: 1rem;
+    margin-bottom: 2rem;
+}
+
+@media screen and (min-width: 1000px) {
+    .desktop{
+        display: none;
+    }
+    .top img{
+        margin-bottom: 0;
+    }
+}

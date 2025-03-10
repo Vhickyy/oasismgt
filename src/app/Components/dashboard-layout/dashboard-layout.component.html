@@ -1,0 +1,35 @@
+<section>
+    <aside class="sidebar">
+        <div>
+            <img src="../../../assets/logo.svg" class="logo" alt="oasismgt-logo">
+            <div class="links">
+                @for (item of dashboardRoutes; track $index) {
+                    <div class="link-item" [routerLink]="item.path" routerLinkActive="active" >
+                        <img [src]="item.icon" [alt]="item.name">
+                        <p>{{item.name}}</p>
+                    </div>
+                }
+            </div>
+        </div>
+    </aside>
+    <aside>
+        <ng-content></ng-content>
+    </aside>
+</section>
+
+@if(taskService.showSidebar){
+    <aside class="sidebar mobile">
+        <div>
+            <h1 (click)="taskService.toggleSideBar()">x</h1>
+            <img src="../../../assets/logo.svg" class="logo" alt="oasismgt-logo">
+            <div class="links">
+                @for (item of dashboardRoutes; track $index) {
+                    <div class="link-item" [routerLink]="item.path" routerLinkActive="active" (click)="taskService.toggleSideBar()">
+                        <img [src]="item.icon" [alt]="item.name">
+                        <p>{{item.name}}</p>
+                    </div>
+                }
+            </div>
+        </div>
+    </aside>
+}

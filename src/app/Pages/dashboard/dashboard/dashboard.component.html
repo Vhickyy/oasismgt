@@ -1,0 +1,122 @@
+<app-dashboard-layout>
+    <section>
+        <div class="col-1">
+            
+            <app-profile>
+                <div>
+                    <p>Hi {{authService.currentUser?.data?.fullName}}</p>
+                    <p>Let's finish your task today!</p>
+                </div>
+            </app-profile>
+
+            <!-- <div class="flex-position"> -->
+                <div class="desktop">
+                    <p>Hi {{authService.currentUser?.data?.fullName}}</p>
+                    <p>Let's finish your task today!</p>
+                </div>
+            <!-- </div> -->
+
+            <div>
+                <h3>You have got {{tasks.length}} tasks today</h3>
+                <div class="search">
+                    <input type="text" placeholder="Search something...">
+                </div>
+            </div>
+            
+            <div>
+                <div class="flex-position">
+                    <p>Ongoing Task</p>
+                    <p>See all tasks</p>
+                </div>
+                @if(!tasks.length){
+                    <div class="empty">
+                        <p>No task to display.</p>
+                        <button routerLink="/dashboard/task/create-task">Add Task</button>
+                    </div>
+                }@else{
+                    <div class="tasks">
+                        @for (item of tasks.slice(0,2); track $index) {
+                            <app-task-component [item]="item"></app-task-component>
+                        }
+                    </div>
+                }
+            </div>
+
+            <div class="end">
+                <div class="card-1">
+                    <div class="total-task">
+                        <p class="total-top">Total Tasks</p>
+                        <p class="total-task">{{tasks.length}}</p>
+                    </div>
+                    <div>
+                        <div>
+                            <p>45%</p>
+                        </div>
+                    </div>
+                    <div >
+                        <p class="ongoing">Ongoing Task</p>
+                        <p class="grid-2">{{tasks.length - completedTasks.length}}</p>
+                    </div>
+                    <div >
+                        <p class="completed">Completed Task</p>
+                        <p class="grid-2">{{completedTasks.length}}</p>
+                    </div>
+                </div>
+                <div class="card-2">
+                    <div class="members-container">
+                        <div class="members-title">
+                            <h3>Team Members</h3>
+                            <button>See all</button>
+                        </div>
+                        <div class="members-card">
+                            @for (item of [1,2,3,4,5]; track $index) {
+                                <div  class="members">
+                                    <img src="../../../../assets/maria.png" alt="">
+                                    <div>
+                                        <p>Maria</p>
+                                        <p>Ui</p>
+                                    </div>
+                                </div>
+                            }
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="cal-card">
+                <div class="date">
+                    <div>
+                        <p>{{date | date : 'MMMM d, y'}}</p>
+                        <p>today</p>
+                    </div>
+                    <button routerLink="/dashboard/task/create-task"><span><img src="../../../../assets/add.svg" alt=""></span>Add Task</button>
+                </div>
+            </div>
+            <div class="messages">
+                <h3>Meassages</h3>
+                @for(item of messages; track $index;){
+                    <div>
+                        <div class="flex-position">
+                            <img [src]="item.pic" class="img" alt="">
+                            <div>
+                                <p class="name">{{item.name}}</p>
+                                <p class="message-body">{{item.message}}</p>
+                            </div>
+                        </div>
+                        <div class="message-align">
+                            <p class="message-body">{{item.timing}} Ago</p>
+                            @if(item.status == 'sent'){
+                                <img src="../../../../assets/sent.svg" alt="">
+                            }@else {
+                                <div class="received"></div>
+                            }
+                        </div>
+                    </div>
+                }
+                <button>See All Messages</button>
+            </div>
+        </div>
+    </section>
+</app-dashboard-layout>
